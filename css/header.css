@@ -1,0 +1,30 @@
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffd700; /* Felgeel */
+  padding: 10px 20px;
+  border-bottom: 2px solid #333;
+  position: sticky; /* Make the header sticky */
+  top: 0; /* Stick to the top of the viewport */
+  z-index: 2; /* Ensure header is above other content */
+}
+
+/* Hero sectie */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+  z-index: 1; /* Ensure hero section is below the header */
+}
+
+.hero-content{
+  display: flex;
+  padding:60px;
+}

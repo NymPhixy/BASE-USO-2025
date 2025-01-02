@@ -1,0 +1,14 @@
+.text-lg{
+  font-size: 1.5rem;
+}
+
+.hero h1 {
+  font-size: 4.5rem;
+  margin-bottom: 20px;
+  z-index: 1; /* Ensure content is above the blurred background */
+}
+
+.hero p {
+  margin-bottom: 30px;
+  z-index: 1;
+}

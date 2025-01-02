@@ -1,0 +1,115 @@
+.button-default {
+  color: white;
+  background-color: #46bac9;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 9px 14px;
+  margin: 10px;
+  display: inline-block;
+}
+
+.grid-block {
+  margin-left: 20px;
+  padding-left: 30px;
+  padding-top: 30px;
+  -ms-transform: skewX(-20deg);
+  -webkit-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+  border: 1px solid #ccc;
+  transition: border 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.grid-block::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 30px;
+  background: #e6c200;
+  transition: width 0.3s ease-in-out;
+}
+
+.grid-block:hover {
+  padding-left: 100px;
+  transition: padding-left 0.3s ease-in-out;
+}
+
+.grid-block:hover .slanted-icon {
+  opacity: 1;
+  left: 20px;
+}
+
+.grid-block {
+  transition: border 0.3s ease-in-out, border-color 0.3s ease-in-out,
+    padding-left 0.3s ease-in-out;
+}
+
+.grid-block:hover::after {
+  width: 100px;
+}
+
+.button-slanted-content {
+  -ms-transform: skewX(20deg);
+  -webkit-transform: skewX(20deg);
+  transform: skewX(20deg);
+  display: inline-block;
+}
+
+.margin-left-50 {
+  margin-left: 50px;
+}
+
+.button-fixedwidth {
+  width: 100px;
+}
+
+/* Hero */
+.hero-button2 {
+  background: #ffd700;
+  color: #fff;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 2rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+  z-index: 1;
+  margin: 0 10px;
+}
+
+.hero-button2:hover {
+  background: #e6c200;
+  transform: scale(1.05);
+}
+
+.hero-button1 {
+  background: #fafafa;
+  color: #ffd700;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 2rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+  z-index: 1;
+  margin: 0 10px;
+}
+
+.hero-button1:hover {
+  background: #e0e0e0;
+  transform: scale(1.05);
+}
+
+.hero-button:hover {
+  background: #ffd700;
+}
+
+.slanted-icon {
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  left: -50px;
+  max-width: 60px;
+  opacity: 0;
+  fill: white !important;
+  z-index: 10;
+  overflow: hidden;
+}
