@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digno - Digitale Oplossingen</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+</head>
+
+<body>
+  <!-- Header Sectie -->
+  <div class="header">
+    <div class="logo-container">
+      <img src="/logo_icon_nav.png" alt="Digno Logo" class="logo" />
+      <span class="subtitle">COMPUTERS • HAREN</span>
+    </div>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Over Digno</a></li>
+        <li><a href="#">Reparatie & Service</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+
+    </nav>
+  </div>
+
+  <!-- Hero Sectie -->
+  <header class="hero w-full">
+    <div class="flex justify-between h-full w-full">
+      <div data-aos="fade-in" class="hero-content w-half h-full flex flex-col justify-center bg-black">
+        <h1 class="text-primary">
+          Snel en eenvoudig een ticket aanvragen
+        </h1>
+        <p class="text-white text-lg">
+          Wij repareren uw computer of laptop snel en vakkundig. Dit doen wij in onze winkel in Haren of bij u op
+          locatie.
+        </p>
+        <div class="grid col-3 gap-16">
+          <div class="grid-block">
+            <img src="" alt="reparatie" />
+            <h2>Reparatie</h2>
+            <p>Wij repareren uw computer of laptop snel en vakkundig.</p>
+          </div>
+          <div class="grid-block">
+            <img src="https://www.digno.nl/wp-content/uploads/2021/04/maintenance.png" alt="onderhoud" />
+            <h2>Onderhoud</h2>
+            <p>Regelmatig onderhoud om uw apparaten in topconditie te houden.</p>
+          </div>
+          <div class="grid-block">
+            <img src="https://www.digno.nl/wp-content/uploads/2021/04/upgrade.png" alt="upgrade" />
+            <h2>Upgrades</h2>
+            <p>Verbeter de prestaties van uw computer met onze upgrade services.</p>
+          </div>
+          <div class="grid-block">
+            <img src="https://www.digno.nl/wp-content/uploads/2021/04/data-recovery.png" alt="data recovery" />
+            <h2>Data Recovery</h2>
+            <p>Herstel verloren gegevens snel en veilig.</p>
+          </div>
+          <div class="grid-block">
+            <img src="https://www.digno.nl/wp-content/uploads/2021/04/virus-removal.png" alt="virus removal" />
+            <h2>Virus Verwijdering</h2>
+            <p>Bescherm uw computer tegen virussen en malware.</p>
+          </div>
+          <div class="grid-block">
+            <img src="https://www.digno.nl/wp-content/uploads/2021/04/consulting.png" alt="consulting" />
+            <h2>Consultancy</h2>
+            <p>Advies op maat voor al uw IT-vragen en -behoeften.</p>
+          </div>
+
+          <a class="grid-block-cta">
+            <span>
+              Direct aanmelden
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+              class="bi bi-chevron-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708">
+              </path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="w-half h-full">
+        <img data-aos="fade-in" class="h-full" style="object-fit: cover;"
+          src="https://www.digno.nl/wp-content/uploads/2021/04/SAM_0012.jpg" alt="digno" />
+      </div>
+      <!-- <div class="hero-image" id="hero-content-container">
+      </div> -->
+  </header>
+
+  <!-- Loader -->
+  <div id="loader" class="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Main Content -->
+  <div id="main-content" style="display: none;">
+    <!-- Existing Header, Hero Section, etc. -->
+  </div>
+  <!-- Your existing content goes here -->
+
+
+  </div>
+  <form id="aanmeld-formulier" class="form-container" action="/action_page.php">
+    <div>
+      <h2>Direct aanmelden</h2>
+      <p>Vul het formulier in en wij nemen zo snel mogelijk contact met u op.</p>
+    </div>
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+    <label for="country">Country</label>
+    <select id="country" name="country"></select>
+
+    <script>
+      // Fetch the JSON data
+      fetch('config/language/language.json')
+        .then(response => response.json())
+        .then(data => {
+          const countrySelect = document.getElementById('country');
+          data.countries.forEach(country => {
+            const option = document.createElement('option');
+            option.value = country.value;
+            option.textContent = country.name;
+            countrySelect.appendChild(option);
+          });
+        })
+        .catch(error => console.error('Error fetching country data:', error));
+    </script>
+
+    <div class="flex-row">
+      <input type="reset" value="Annuleren">
+      <input type="submit" value="Ticket aanvragen">
+    </div>
+
+  </form>
+  </div>
+  </header>
+
+
+
+  <footer class="footer">
+    <div class="footer-section">
+      <img src="./logo_icon_nav.png" alt="Digno Logo" class="footer-logo" />
+      <p>U kunt bij DIGNO terecht voor al uw computerwensen.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Links</h3>
+      <ul>
+        <li><a href="#">Algemene voorwaarden</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Garantie</a></li>
+        <li><a href="#">Vacatures</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <ul>
+        <li>✉️ <a href="mailto:info@digno.nl">info@digno.nl</a></li>
+        <li>📞 <a href="tel:0505349965">050-5349965</a></li>
+        <li>KvK Groningen: 020.76318</li>
+        <li>btw-idnr: NL001461343B22</li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Openingstijden winkel:</h3>
+      <ul>
+        <li>⏰ Dinsdag t/m vrijdag 13.00 - 17.00</li>
+        <li>⏰ Zaterdag 12.00 - 17.00</li>
+        <li>⏰ Zondag & maandag gesloten</li>
+      </ul>
+    </div>
+  </footer>
+  <script>
+
+    window.addEventListener('load', function () {
+
+      document.querySelector('.loader').style.display = 'none';
+
+      document.getElementById('main-content').style.display = 'block';
+
+    });
+
+  </script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+</body>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const heroContentContainer = document.getElementById("hero-content-container");
+    const aanmeldFormulier = document.getElementById("aanmeld-formulier");
+    const heroButton = document.querySelector(".hero-button");
+    const resetButton = aanmeldFormulier.querySelector("input[type='reset']");
+
+    // Hide the form by default
+    aanmeldFormulier.style.display = "none";
+
+    heroButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      heroContentContainer.style.display = "none";
+      aanmeldFormulier.style.display = "block";
+    });
+
+    resetButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      aanmeldFormulier.style.display = "none";
+      heroContentContainer.style.display = "block";
+    });
+  });
+</script>
+
+
+</html>
