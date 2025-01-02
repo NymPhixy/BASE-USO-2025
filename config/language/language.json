@@ -1,0 +1,12 @@
+{
+    "countries": [
+      { "value": "netherlands", "name": "Netherlands" },
+      { "value": "germany", "name": "Germany" },
+      { "value": "france", "name": "France" },
+      { "value": "belgium", "name": "Belgium" },
+      { "value": "united-kingdom", "name": "United Kingdom" },
+      { "value": "usa", "name": "USA" },
+      { "value": "canada", "name": "Canada" },
+      { "value": "australia", "name": "Australia" }
+    ]
+  }
