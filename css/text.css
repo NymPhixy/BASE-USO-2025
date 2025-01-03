@@ -12,3 +12,39 @@
   margin-bottom: 30px;
   z-index: 1;
 }
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-md {
+  font-size: 1rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.text-2xl {
+  font-size: 2rem;
+}
+
+.text-3xl {
+  font-size: 3rem;
+}
+
+.text-4xl {
+  font-size: 4rem;
+}
+
+.text-5xl {
+  font-size: 5rem;
+}
+
+.text-6xl {
+  font-size: 6rem;
+}

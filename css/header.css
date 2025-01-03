@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #ffd700; /* Felgeel */
+  background: #ffe924; /* Felgeel */
   padding: 10px 20px;
   border-bottom: 2px solid #333;
   position: sticky; /* Make the header sticky */
