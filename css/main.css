@@ -200,3 +200,65 @@ a {
   background-size: cover !important;
   background-repeat: no-repeat !important;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .footer-section {
+    min-width: 100%;
+  }
+
+  .welkom1 {
+    font-size: 50px;
+  }
+
+  .bio1 {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .grid-block-cta {
+    font-size: 24px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav a {
+    font-size: 14px;
+  }
+
+  .footer-section h3 {
+    font-size: 1rem;
+  }
+
+  .footer-section ul li {
+    font-size: 0.8rem;
+  }
+
+  .footer-section p {
+    font-size: 0.8rem;
+  }
+
+  .welkom1 {
+    font-size: 40px;
+  }
+
+  .bio1 {
+    font-size: 0.9rem;
+  }
+
+  .grid-block-cta {
+    font-size: 20px;
+    padding: 10px;
+  }
+}
