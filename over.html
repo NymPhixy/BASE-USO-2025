@@ -4,11 +4,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/button.css" />
+    <link rel="stylesheet" href="css/color.css" />
+    <link rel="stylesheet" href="css/form.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/text.css" />
+    <link rel="stylesheet" href="css/products.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <script src="js/cta-button.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/fetch-languages.js"></script>
+    <script src="js/form.js"></script>
+
+
     <title>Document</title>
 </head>
 
 <body>
+    <div class="header">
+        <div class="logo-container">
+            <img src="public/images/logo_icon_nav.png" alt="Digno Logo" class="logo" />
+            <span class="subtitle">COMPUTERS • HAREN</span>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="/over.html">Over Digno</a></li>
+                <li><a href="/reparatie-en-service.html">Reparatie & Service</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
 
+    <footer class="footer">
+        <div class="footer-section">
+            <img src="public/images/logo_icon_nav.png" alt="Digno Logo" class="footer-logo" />
+            <p>U kunt bij DIGNO terecht voor al uw computerwensen.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Links</h3>
+            <ul>
+                <li><a href="#">Algemene voorwaarden</a></li>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Garantie</a></li>
+                <li><a href="#">Vacatures</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <ul>
+                <li>✉️ <a href="mailto:info@digno.nl">info@digno.nl</a></li>
+                <li>📞 <a href="tel:0505349965">050-5349965</a></li>
+                <li>KvK Groningen: 020.76318</li>
+                <li>btw-idnr: NL001461343B22</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Openingstijden winkel:</h3>
+            <ul>
+                <li>⏰ Dinsdag t/m vrijdag 13.00 - 17.00</li>
+                <li>⏰ Zaterdag 12.00 - 17.00</li>
+                <li>⏰ Zondag & maandag gesloten</li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener("load", function () {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("main-content").style.display = "block";
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const blocks = document.querySelectorAll(".grid-block");
+            const forms = document.querySelectorAll(".form-container");
+
+            // Show the first form by default
+            if (forms.length > 0) {
+                forms[0].classList.remove("hidden");
+                forms[0].classList.add("block");
+            }
+
+            blocks.forEach((block) => {
+                block.addEventListener("click", function () {
+                    const formId = block.id.replace("-block", "-form");
+                    const form = document.getElementById(formId);
+
+                    // Hide all forms and remove data-aos attribute
+                    forms.forEach((f) => {
+                        f.classList.add("hidden");
+                        f.classList.remove("block");
+                        f.removeAttribute("data-aos");
+                    });
+
+                    // Show the clicked form with data-aos attribute
+                    if (form) {
+                        form.classList.remove("hidden");
+                        form.classList.add("block");
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
