@@ -5,15 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Digno - Digitale Oplossingen</title>
-  <link rel="stylesheet" href="css/button.css" />
-  <link rel="stylesheet" href="css/color.css" />
-  <link rel="stylesheet" href="css/form.css" />
-  <link rel="stylesheet" href="css/header.css" />
-  <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="css/main.css" />
-  <link rel="stylesheet" href="css/text.css" />
-  <link rel="stylesheet" href="css/products.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="css/styles.css" />
 
   <!-- Javascript -->
   <script src="js/cta-button.js"></script>
@@ -21,6 +13,7 @@
   <script src="js/navigation.js"></script>
   <script src="js/fetch-languages.js"></script>
   <script src="js/form.js"></script>
+  <script src="js/products.js"></script>
 </head>
 
 <body>
@@ -33,9 +26,9 @@
     <nav class="nav">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="#">Over Digno</a></li>
-        <li><a href="#">Reparatie & Service</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="/over.html">Over Digno</a></li>
+        <li><a href="/reparatie-en-service.html">Reparatie & Service</a></li>
+        <li><a href="/contact.html">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -121,19 +114,30 @@
       <div style="background: url('./public/images/digno_achtergrond.jpg')"
         class="digno-achtergrond w-half h-full flex flex-col justify-center">
         <form id="reparatie-form" class="form-container mxw-75 hidden" action="/action_page.php">
-          <h2>Direct aanmelden</h2>
+          <h2> Reparatie Aanvragen</h2>
           <p>
             Vul het formulier in en wij nemen zo snel mogelijk contact met u
             op.
           </p>
           <label for="fname">First Name</label>
-          <input type="text" id="fname" name="firstname" placeholder="Your name.." />
-          <label for="lname">Last Name</label>
-          <input type="text" id="lname" name="lastname" placeholder="Your last name.." />
-          <div class="flex-row">
-            <input type="reset" value="Annuleren" />
-            <input type="submit" value="Ticket aanvragen" />
-          </div>
+          <label for="repair-type">Kies uw reparatie:</label>
+          <select id="repair-type" name="repairtype">
+            <option value="smartphones">Smartphones</option>
+            <option value="laptops">Laptops</option>
+            <option value="pc">PC</option>
+            <option value="apple">Apple Producten</option>
+            <option value="tablets">Tablets</option>
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Your email.." />
+            <input type="text" id="phone" name="phone" placeholder="Your phone number.." />
+            <label for="text">Opmerking:</label>
+            <textarea class="form-container" name="message" maxlength="300" rows="5" cols="30"
+              placeholder="Type your message here..." name="text" placeholder="Wat is er beschadigd?"
+              style="width: 100%;"></textarea>
+            <div class="flex-row">
+              <input type="reset" value="Annuleren" />
+              <input type="submit" value="Ticket aanvragen" onclick="location.href='/action_page.php';" />
+            </div>
         </form>
 
         <form id="onderhoud-form" class="form-container mxw-75 hidden" action="/action_page.php">
@@ -142,173 +146,44 @@
             Vul het formulier in en wij nemen zo snel mogelijk contact met u
             op.
           </p>
-          <label for="fname-onderhoud">First Name</label>
-          <input type="text" id="fname-onderhoud" name="firstname" placeholder="Your name.." />
-          <label for="lname-onderhoud">Last Name</label>
-          <input type="text" id="lname-onderhoud" name="lastname" placeholder="Your last name.." />
-          <div class="flex-row">
-            <input type="reset" value="Annuleren" />
-            <input type="submit" value="Ticket aanvragen" />
-          </div>
-        </form>
+          <label for="fname">First Name</label>
+          <label for="repair-type">Kies uw reparatie:</label>
+          <select id="repair-type" name="repairtype">
+            <option value="smartphones">Smartphones</option>
+            <option value="laptops">Laptops</option>
+            <option value="pc">PC</option>
+            <option value="apple">Apple Producten</option>
+            <option value="tablets">Tablets</option>
+          </select>
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" placeholder="Your email.." />
+          placeholder="Your email.." />
+          <input type="text" id="phone" name="phone" placeholder="Your phone number.." />
+      </div>
+      </form>
 
-        <div id="upgrades-form" class="form-container hidden h-full" action="/action_page.php">
-          <h2>AMD PC Upgrades</h2>
-          <p>
-            Verbeter de prestaties van uw computer met onze upgrade services.
-          </p>
+      <div id="upgrades-form" class="form-container hidden h-full" action="/action_page.php">
+        <h2>PC Upgrades</h2>
+        <p>
+          Verbeter de prestaties van uw computer met onze upgrade services.
+        </p>
 
-            <div class="grid col-3 gap-4" style="max-height: 800px; overflow-y: auto;">
-            <div class="product-container h-full flex flex-col justify-between">
-              <img class="product-image"
-                src="https://www.alternate.nl/p/160x160/5/0/AMD_Ryzen_7_9800X3D__4_7_GHz__5_2_GHz_Turbo_Boost__socket_AM5_processor@@100093605.jpg"
-                alt="AMD Ryzen 7 9800X3D, 4,7 GHz (5,2 GHz Turbo Boost) socket AM5 processor
-                " />
-              <p class="product-description">
-                AMD Ryzen 7 9800X3D - 4.7 GHz - 8 Cores - 16 Threads - Socket AM5
-              </p>
-              <span class="product-price">€ 649,00 </span>
-              <a href="#" class="buy-button">
-                <img class="shopping-cart-icon" src="./public/images/shopping-cart.png" alt="shopping cart" />
-                Toevoegen aan winkelmand</a>
-            </div>
-            <div class="product-container h-full flex flex-col justify-between">
-              <img class="product-image" src="/public/images/ryzen5.webp" alt="AMD Ryzen 7 9800X3D, 4,7 GHz (5,2 GHz Turbo Boost) socket AM5 processor
-                " />
-              <p class="product-description">
-                AMD Ryzen 5 5600X - 4.6 GHz - 6 Cores - 12 Threads - Socket AM4
-              </p>
-              <span class="product-price">€ 191,00 </span>
-              <a href="#" class="buy-button">
-                <img class="shopping-cart-icon" src="./public/images/shopping-cart.png" alt="shopping cart" />
-                Toevoegen aan winkelmand</a>
-            </div>
-            <div class="product-container h-full flex flex-col justify-between">
-              <img class="product-image" src="/public/images/amd3ryzen.webp" alt="AMD Ryzen 7 9800X3D, 4,7 GHz (5,2 GHz Turbo Boost) socket AM5 processor
-                " />
-              <p class="product-description">
-                AMD Ryzen 3 5300G - 4 GHz - 4 Cores - 8 Threads - 8 MB Cache - Socket AM4
-              </p>
-              <span class="product-price">€ 129,00 </span>
-              <a href="#" class="buy-button">
-                <img class="shopping-cart-icon" src="./public/images/shopping-cart.png" alt="shopping cart" />
-                Toevoegen aan winkelmand</a>
-            </div>
-            <div class="product-container h-full flex flex-col justify-between">
-              <img class="product-image" src="/public/images/intel i9.webp" alt="Intel Core i9-12900K Processor" />
-              <p class="product-description">
-                Intel Core i9-12900K - 3.2 GHz - 16 Cores - 24 Threads - Socket LGA1700
-              </p>
-              <span class="product-price">€ 599,00 </span>
-              <a href="#" class="buy-button">
-                <img class="shopping-cart-icon" src="./public/images/shopping-cart.png" alt="shopping cart" />
-                Toevoegen aan winkelmand
-              </a>
-            </div>
-
-            <div class="product-container h-full flex flex-col justify-between">
-              <img class="product-image" src="/public/images/i7.webp" alt="Intel Core i7-12700K Processor" />
-              <p class="product-description">
-                Intel Core i7-12700K - 3.6 GHz - 12 Cores - 20 Threads - Socket LGA1700
-              </p>
-              <span class="product-price">€ 419,00 </span>
-              <a href="#" class="buy-button">
-                <img class="shopping-cart-icon" src="./public/images/shopping-cart.png" alt="shopping cart" />
-                Toevoegen aan winkelmand
-              </a>
-            </div>
-
-            <div class="product-container h-full flex flex-col justify-between">
-              <img class="product-image" src="/public/images/i5.webp" alt="Intel Core i5-12600K Processor" />
-              <p class="product-description">
-                Intel Core i5-12600K - 3.7 GHz - 10 Cores - 16 Threads - Socket LGA1700
-              </p>
-              <span class="product-price">€ 289,00 </span>
-              <a href="#" class="buy-button">
-                <img class="shopping-cart-icon" src="./public/images/shopping-cart.png" alt="shopping cart" />
-                Toevoegen aan winkelmand
-              </a>
-            </div>
-            <div class="product-container h-full flex flex-col justify-between">
-              <img class="product-image" src="/public/images/ng3080.webp" alt="NVIDIA GeForce RTX 3080" />
-              <p class="product-description">
-                NVIDIA GeForce RTX 3080 - 10 GB GDDR6X - PCI Express 4.0
-              </p>
-              <span class="product-price">€ 699,00 </span>
-              <a href="#" class="buy-button">
-                <img class="shopping-cart-icon" src="./public/images/shopping-cart.png" alt="shopping cart" />
-                Toevoegen aan winkelmand
-              </a>
-            </div>
-
-            <div class="product-container h-full flex flex-col justify-between">
-              <img class="product-image" src="/public/images/rx6800.webp" alt="AMD Radeon RX 6800" />
-              <p class="product-description">
-                AMD Radeon RX 6800 - 16 GB GDDR6 - PCI Express 4.0
-              </p>
-              <span class="product-price">€ 579,00 </span>
-              <a href="#" class="buy-button">
-                <img class="shopping-cart-icon" src="./public/images/shopping-cart.png" alt="shopping cart" />
-                Toevoegen aan winkelmand
-              </a>
-            </div>
-
-            <div class="product-container h-full flex flex-col justify-between">
-              <img class="product-image" src="/public/images/intelvideokaart.webp" alt="Intel Arc A770" />
-              <p class="product-description">
-                Intel Arc A770 - 16 GB GDDR6 - PCI Express 4.0
-              </p>
-              <span class="product-price">€ 399,00 </span>
-              <a href="#" class="buy-button">
-                <img class="shopping-cart-icon" src="./public/images/shopping-cart.png" alt="shopping cart" />
-                Toevoegen aan winkelmand
-              </a>
-            </div>
-            <div class="product-container h-full flex flex-col justify-between">
-              <img class="product-image" src="/public/images/moboasus.webp" alt="ASUS Motherboard" />
-              <p class="product-description">
-                ASUS ROG Strix B550-F Gaming - ATX - Socket AM4
-              </p>
-              <span class="product-price">€ 189,00 </span>
-              <a href="#" class="buy-button">
-                <img class="shopping-cart-icon" src="./public/images/shopping-cart.png" alt="shopping cart" />
-                Toevoegen aan winkelmand
-              </a>
-            </div>
-
-            <div class="product-container h-full flex flex-col justify-between">
-              <img class="product-image" src="/public/images/msimobo.webp" alt="MSI Motherboard" />
-              <p class="product-description">
-                MSI MPG Z490 Gaming Edge WiFi - ATX - Socket LGA1200
-              </p>
-              <span class="product-price">€ 229,00 </span>
-              <a href="#" class="buy-button">
-                <img class="shopping-cart-icon" src="./public/images/shopping-cart.png" alt="shopping cart" />
-                Toevoegen aan winkelmand
-              </a>
-            </div>
-
-            <div class="product-container h-full flex flex-col justify-between">
-              <img class="product-image" src="/public/images/gigamobo.webp" alt="Gigabyte Motherboard" />
-              <p class="product-description">
-                Gigabyte Z590 AORUS Elite AX - ATX - Socket LGA1200
-              </p>
-              <span class="product-price">€ 249,00 </span>
-              <a href="#" class="buy-button">
-                <img class="shopping-cart-icon" src="./public/images/shopping-cart.png" alt="shopping cart" />
-                Toevoegen aan winkelmand
-              </a>
-            </div>
+        <a class="winkelmand-button">Winkelmand
+          <img class="" src="./public/images/shopping-cart.png" alt="shopping cart" />
+        </a>
+        <section class="grid col-3 gap-4" id="product-list" style="max-height: 800px; overflow-y: auto;">
 
 
-          </div>
 
-          <div style="margin-top:20px;" class="flex justify-center">
-            <a href="#onderdelen" class="cta-button" href="#" onclick="smoothScroll('#onderdelen')">Bekijk alle
-              upgrades</a>
-          </div>
+
+        </section>
+
+        <div style="margin-top:20px;" class="flex justify-center">
+          <a href="#onderdelen" class="cta-button" href="#" onclick="smoothScroll('#onderdelen')">Bekijk alle
+            upgrades</a>
         </div>
       </div>
+    </div>
     </div>
     </div>
   </header>
