@@ -91,47 +91,52 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const productsContainer = document.getElementById("products-container");
-        products.forEach((product) => {
+        const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Check if cart is empty
+        if (cartItems.length === 0) {
+          productsContainer.innerHTML = "<p>Uw winkelmand is leeg.</p>";
+          return;
+        }
+
+        cartItems.forEach((product) => {
           const productCard = document.createElement("div");
           productCard.className = "product-card";
           productCard.innerHTML = `
-                  <div class="card">
-                      <div class="img-box">
-                          <img src="${product.image}" alt="${product.name}" width="80px" class="product-img">
-                      </div>
-                      <div class="detail">
+                <div class="card">
+                    <div class="img-box">
+                        <img src="${product.image}" alt="${product.name}" width="80px" class="product-img">
+                    </div>
+                    <div class="detail">
                         <div class="inner-detail">
-                          <h4 class="product-name">${product.name}</h4>
-                          <p>${product.description}</p>
-                          <div class="wrapper">
-                              <!-- <div class="product-qty">
-                                  <button id="decrement">
-                                      <ion-icon name="remove-outline"></ion-icon>
-                                  </button>
-                                  <span id="quantity">1</span>
-                                  <button id="increment">
-                                      <ion-icon name="add-outline"></ion-icon>
-                                  </button>
-                              </div> -->
-                             
-                            </div>
-                          </div>
-                          <div class="cart-functions">
-                            <a href="#" class="product-remove">
-                              <?xml version="1.0" encoding="utf-8"?>
-                              <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                              <svg width="20px" height="20px" viewBox="0 0 1024 1024" fill="#000000" class="icon"  version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M512 897.6c-108 0-209.6-42.4-285.6-118.4-76-76-118.4-177.6-118.4-285.6 0-108 42.4-209.6 118.4-285.6 76-76 177.6-118.4 285.6-118.4 108 0 209.6 42.4 285.6 118.4 157.6 157.6 157.6 413.6 0 571.2-76 76-177.6 118.4-285.6 118.4z m0-760c-95.2 0-184.8 36.8-252 104-67.2 67.2-104 156.8-104 252s36.8 184.8 104 252c67.2 67.2 156.8 104 252 104 95.2 0 184.8-36.8 252-104 139.2-139.2 139.2-364.8 0-504-67.2-67.2-156.8-104-252-104z" fill="" /><path d="M707.872 329.392L348.096 689.16l-31.68-31.68 359.776-359.768z" fill="" /><path d="M328 340.8l32-31.2 348 348-32 32z" fill="" /></svg></a>
+                            <h4 class="product-name">${product.name}</h4>
+                            <p>${product.description}</p>
+                            <div class="wrapper"></div>
+                        </div>
+                        <div class="cart-functions">
                             <div class="price">
                                 <span id="price">${product.price}</span>
                             </div>
+                            <a href="#" class="product-remove" data-name="${product.name}">
+                                Remove
+                            </a>
                         </div>
-                      </div>
-                      <button class="product-close-btn">
-                          <ion-icon name="close-outline"></ion-icon>
-                      </button>
-                  </div>
-              `;
+                    </div>
+                </div>
+            `;
           productsContainer.appendChild(productCard);
+        });
+
+        // Event listener for removing a product from cart
+        productsContainer.addEventListener("click", function (event) {
+          if (event.target.classList.contains("product-remove")) {
+            const productNameToRemove = event.target.getAttribute("data-name");
+            const updatedCart = cartItems.filter(
+              (item) => item.name !== productNameToRemove
+            );
+            localStorage.setItem("cart", JSON.stringify(updatedCart));
+            location.reload(); // Reload the page to reflect changes
+          }
         });
       });
     </script>

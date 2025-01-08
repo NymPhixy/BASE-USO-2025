@@ -113,6 +113,25 @@ document.addEventListener("DOMContentLoaded", () => {
     buyButton.setAttribute("data-name", product.name);
     buyButton.setAttribute("data-price", product.price);
 
+    // Add event listener to the button
+    buyButton.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      // Get existing cart items or initialize it
+      const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+      // Check if the product is already in the cart
+      const existantProduct = cartItems.find(item => item.name === product.name);
+      if (existantProduct) {
+        alert("Dit product is al in uw winkelmand.");
+      } else {
+        // Add product to cart
+        cartItems.push(product);
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+        alert("Product toegevoegd aan uw winkelmand!");
+      }
+    });
+
     productContainer.appendChild(productImage);
     productContainer.appendChild(productDescription);
     productContainer.appendChild(productPrice);
