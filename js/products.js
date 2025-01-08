@@ -122,7 +122,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
       // Check if the product is already in the cart
-      const existantProduct = cartItems.find(item => item.name === product.name);
+      const existantProduct = cartItems.find(
+        (item) => item.name === product.name
+      );
       if (existantProduct) {
         alert("Dit product is al in uw winkelmand.");
       } else {

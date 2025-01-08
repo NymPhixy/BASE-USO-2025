@@ -1,13 +1,13 @@
-'use strict';
+"use strict";
 
-const payAmountBtn = document.querySelector('#payAmount');
-const decrementBtn = document.querySelectorAll('#decrement');
-const quantityElem = document.querySelectorAll('#quantity');
-const incrementBtn = document.querySelectorAll('#increment');
-const priceElem = document.querySelectorAll('#price');
-const subtotalElem = document.querySelector('#subtotal');
-const taxElem = document.querySelector('#tax');
-const totalElem = document.querySelector('#total');
+const payAmountBtn = document.querySelector("#payAmount");
+const decrementBtn = document.querySelectorAll("#decrement");
+const quantityElem = document.querySelectorAll("#quantity");
+const incrementBtn = document.querySelectorAll("#increment");
+const priceElem = document.querySelectorAll("#price");
+const subtotalElem = document.querySelector("#subtotal");
+const taxElem = document.querySelector("#tax");
+const totalElem = document.querySelector("#total");
 
 const products = [
   {
@@ -90,5 +90,44 @@ const products = [
     image: "/public/images/gigamobo.webp",
   },
 ];
+
+function renderProducts() {
+  const productsContainer = document.getElementById("products-container");
+  productsContainer.innerHTML = "";
+
+  products.forEach((product) => {
+    const productElement = document.createElement("div");
+    productElement.className = "product-item";
+    productElement.setAttribute("data-price", product.price);
+
+    productElement.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+      <h3>${product.name}</h3>
+      <p>${product.description}</p>
+      <p>Price: $${product.price.toFixed(2)}</p>
+    `;
+
+    productsContainer.appendChild(productElement);
+  });
+
+  calculateTotal();
+}
+
+function calculateTotal() {
+  const productsContainer = document.getElementById("products-container");
+  const totalAmountElement = document.getElementById("total-amount");
+  let total = 0;
+
+  const productItems = productsContainer.getElementsByClassName("product-item");
+  for (let item of productItems) {
+    const price = parseFloat(item.getAttribute("data-price"));
+    total += price;
+  }
+
+  totalAmountElement.textContent = `$${total.toFixed(2)}`;
+}
+
+// Call renderProducts to display the products and calculate the total
+renderProducts();
 
 export { products };
