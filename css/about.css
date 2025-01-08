@@ -1,0 +1,52 @@
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.flex {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 40px;
+}
+
+.about-section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-primary {
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.text-secondary {
+  color: #333;
+  margin: 20px;
+}
+
+.text-secondary ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.text-secondary ul li {
+  margin-bottom: 10px;
+}
+
+.team-member {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.team-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+  object-fit: cover;
+}

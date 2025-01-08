@@ -1,32 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/button.css" />
-    <link rel="stylesheet" href="css/color.css" />
-    <link rel="stylesheet" href="css/form.css" />
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/text.css" />
-    <link rel="stylesheet" href="css/products.css" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="https://unpkg.com/
+    aos@next/dist/aos.css" />
     <script src="js/cta-button.js"></script>
     <script src="js/loader.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/fetch-languages.js"></script>
     <script src="js/form.js"></script>
-
-
-    <title>Document</title>
+    <title>Contact - Digno</title>
 </head>
-
 <body>
     <div class="header">
-        <div class="logo-container">
+        <div class="logo-container" onclick="location.href='/index.html';" style="cursor: pointer;">
             <img src="public/images/logo_icon_nav.png" alt="Digno Logo" class="logo" />
             <span class="subtitle">COMPUTERS • HAREN</span>
         </div>
@@ -39,6 +29,43 @@
             </ul>
         </nav>
     </div>
+
+    <main class="container">
+        <section class="contact-info" data-aos="fade-up">
+            <h1>Contact</h1>
+            <ul>
+                <li>✉️ <a href="mailto:info@digno.nl">info@digno.nl</a></li>
+                <li>📞 <a href="tel:0505349965">050-5349965</a></li>
+                <li>KvK Groningen: 020.76318</li>
+                <li>btw-idnr: NL001461343B22</li>
+            </ul>
+        </section>
+
+        <section class="opening-hours" data-aos="fade-up" data-aos-delay="100">
+            <h2>Openingstijden winkel:</h2>
+            <ul>
+                <li>⏰ Dinsdag t/m vrijdag 13.00 - 17.00</li>
+                <li>⏰ Zaterdag 12.00 - 17.00</li>
+                <li>⏰ Zondag & maandag gesloten</li>
+            </ul>
+        </section>
+
+        <section class="contact-form" data-aos="fade-up" data-aos-delay="200">
+            <h2>Neem Contact Op</h2>
+            <form id="contact-form" class="form-container" action="/submit_contact.php" method="POST">
+                <label for="name">Naam:</label>
+                <input type="text" id="name" name="name" placeholder="Uw naam.." required />
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Uw email.." required />
+
+                <label for="message">Bericht:</label>
+                <textarea id="message" name="message" placeholder="Uw bericht.." required></textarea>
+
+                <input type="submit" value="Verstuur" />
+            </form>
+        </section>
+    </main>
 
     <footer class="footer">
         <div class="footer-section">
@@ -115,5 +142,4 @@
         AOS.init();
     </script>
 </body>
-
 </html>

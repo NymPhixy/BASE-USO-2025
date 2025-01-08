@@ -4,29 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/button.css" />
-    <link rel="stylesheet" href="css/color.css" />
-    <link rel="stylesheet" href="css/form.css" />
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/text.css" />
-    <link rel="stylesheet" href="css/products.css" />
+    <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
     <script src="js/cta-button.js"></script>
     <script src="js/loader.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/fetch-languages.js"></script>
     <script src="js/form.js"></script>
-
-
-    <title>Document</title>
+    <title>Reparatie en Service - Digno</title>
 </head>
 
 <body>
     <div class="header">
-        <div class="logo-container">
+        <div class="logo-container" onclick="location.href='/index.html';" style="cursor: pointer;">
             <img src="public/images/logo_icon_nav.png" alt="Digno Logo" class="logo" />
             <span class="subtitle">COMPUTERS • HAREN</span>
         </div>
@@ -39,6 +29,45 @@
             </ul>
         </nav>
     </div>
+
+    <main class="container">
+        <section class="service-intro" data-aos="fade-up">
+            <h1>Reparatie en Service</h1>
+            <p>Bij Digno bieden we uitgebreide reparatie- en servicediensten voor al uw computerbehoeften. Of het nu
+                gaat om hardwareproblemen, software-installaties of algemene onderhoudsdiensten, ons team van experts
+                staat voor u klaar.</p>
+        </section>
+
+        <section class="service-details" data-aos="fade-up" data-aos-delay="100">
+            <h2>Onze Diensten</h2>
+            <ul>
+                <li>Hardware reparaties en upgrades</li>
+                <li>Software installatie en configuratie</li>
+                <li>Virus- en malwareverwijdering</li>
+                <li>Dataherstel en back-up oplossingen</li>
+                <li>Netwerkconfiguratie en -onderhoud</li>
+                <li>Algemeen computeronderhoud</li>
+            </ul>
+        </section>
+
+        <section class="service-contact" data-aos="fade-up" data-aos-delay="200">
+            <h2>Neem Contact Op</h2>
+            <p>Heeft u een probleem met uw computer of heeft u een vraag over onze diensten? Neem dan gerust contact met
+                ons op via het onderstaande formulier of bel ons op <a href="tel:0505349965">050-5349965</a>.</p>
+            <form id="contact-form" class="form-container" action="/submit_contact.php" method="POST">
+                <label for="name">Naam:</label>
+                <input type="text" id="name" name="name" placeholder="Uw naam.." required />
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Uw email.." required />
+
+                <label for="message">Bericht:</label>
+                <textarea id="message" name="message" placeholder="Uw bericht.." required></textarea>
+
+                <input type="submit" value="Verstuur" />
+            </form>
+        </section>
+    </main>
 
     <footer class="footer">
         <div class="footer-section">

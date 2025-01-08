@@ -1,0 +1,58 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.contact-info,
+.opening-hours,
+.contact-form {
+  margin-bottom: 40px;
+}
+
+.contact-info h1,
+.opening-hours h2,
+.contact-form h2 {
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.contact-info ul,
+.opening-hours ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.contact-info ul li,
+.opening-hours ul li {
+  margin-bottom: 10px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-container input,
+.form-container textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-container input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.form-container input[type="submit"]:hover {
+  background-color: #0056b3;
+}

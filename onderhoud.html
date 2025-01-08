@@ -1,26 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
     <script src="js/cta-button.js"></script>
     <script src="js/loader.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/fetch-languages.js"></script>
     <script src="js/form.js"></script>
-
-
-    <title>Document</title>
+    <title>Onderhoudsafspraak Bevestiging</title>
 </head>
-
 <body>
     <div class="header">
         <div class="logo-container">
-            <a href="/index.html" onclick="return handleLogoClick();">
+            <a href="/index.html">
             <img src="public/images/logo_icon_nav.png" alt="Digno Logo" class="logo" />
             </a>
             <span class="subtitle">COMPUTERS • HAREN</span>
@@ -37,7 +32,7 @@
 
     <main class="container h-full w-half mx-auto">
         <div class="container-request">
-            <h2 class="besteld-h1">Je Bestelling is geplaatst</h2>
+            <h2 class="besteld-h1">Je Onderhoudsafspraak is Bevestigd</h2>
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                 class="feather feather-check-circle">
@@ -45,9 +40,8 @@
                 <circle cx="12" cy="12" r="10"></circle>
             </svg>
             <div class="thank-you-box">
-                <h3>Bedankt voor het shoppen bij Digno!</h3>
-                <p>We hopen dat je tevreden bent met je aankoop. Als je vragen hebt, neem dan gerust contact met ons op.
-                </p>
+                <h3>Bedankt voor het maken van een onderhoudsafspraak bij Digno!</h3>
+                <p>We kijken ernaar uit om je te helpen. Als je vragen hebt, neem dan gerust contact met ons op.</p>
                 <a href="index.html" class="button">Terug naar Home</a>
             </div>
         </div>
@@ -86,42 +80,15 @@
         </div>
     </footer>
 
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <div class="spinner"></div>
+    </div>
 
     <script>
         window.addEventListener("load", function () {
             document.getElementById("loader").style.display = "none";
             document.getElementById("main-content").style.display = "block";
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const blocks = document.querySelectorAll(".grid-block");
-            const forms = document.querySelectorAll(".form-container");
-
-            // Show the first form by default
-            if (forms.length > 0) {
-                forms[0].classList.remove("hidden");
-                forms[0].classList.add("block");
-            }
-
-            blocks.forEach((block) => {
-                block.addEventListener("click", function () {
-                    const formId = block.id.replace("-block", "-form");
-                    const form = document.getElementById(formId);
-
-                    // Hide all forms and remove data-aos attribute
-                    forms.forEach((f) => {
-                        f.classList.add("hidden");
-                        f.classList.remove("block");
-                        f.removeAttribute("data-aos");
-                    });
-
-                    // Show the clicked form with data-aos attribute
-                    if (form) {
-                        form.classList.remove("hidden");
-                        form.classList.add("block");
-                    }
-                });
-            });
         });
     </script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -129,5 +96,4 @@
         AOS.init();
     </script>
 </body>
-
 </html>

@@ -1,5 +1,5 @@
 .button-default {
-  color: white;
+  color: rgb(0, 0, 0);
   background-color: #46bac9;
   text-align: center;
   text-transform: uppercase;
@@ -274,8 +274,6 @@ body {
 }
 
 .flex-container {
-  display: flex;
-  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
@@ -328,7 +326,7 @@ body {
 }
 
 .gap-8 {
-  gap: 8px;
+  gap: 15px;
 }
 
 .col-1 {
@@ -659,6 +657,9 @@ a {
   height: 100%;
   max-width: 100%;
   max-height: 100%;
+  margin: 10px;
+  padding: 10px;
+  border: none; /* Make the border invisible */
 }
 
 .product-description {
@@ -1356,7 +1357,7 @@ input::-webkit-outer-spin-button {
 .button {
   width: 100%;
   background-color: #ffe924;
-  color: #f4f4f4;
+  color: #000000;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
@@ -1387,7 +1388,7 @@ input::-webkit-outer-spin-button {
   display: inline-block;
   padding: 10px 20px;
   font-size: 16px;
-  color: #fff;
+  color: #000000;
   background-color: #ffe924;
   border: none;
   border-radius: 4px;
@@ -1399,3 +1400,60 @@ input::-webkit-outer-spin-button {
 .thank-you-box .button:hover {
   background-color: #ffd700;
 }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.service-intro, .service-details, .service-contact {
+  margin-bottom: 40px;
+}
+
+.service-intro h1, .service-details h2, .service-contact h2 {
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.service-details ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.service-details ul li {
+  margin-bottom: 10px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-container input, .form-container textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-container input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.form-container input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.hidden {
+  display: none;
+}
+
