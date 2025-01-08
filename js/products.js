@@ -109,7 +109,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const buyButton = document.createElement("a");
     buyButton.href = "#";
     buyButton.classList.add("buy-button");
-    buyButton.innerHTML = `<img class="shopping-cart-icon" src="./public/images/shopping-cart.png" alt="shopping cart" /> Toevoegen aan winkelmand`;
+    buyButton.classList.add("add-to-cart");
+    buyButton.innerHTML = `<img class="shopping-cart-icon " src="./public/images/shopping-cart.png" alt="shopping cart" /> Toevoegen aan winkelmand`;
     buyButton.setAttribute("data-name", product.name);
     buyButton.setAttribute("data-price", product.price);
 

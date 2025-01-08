@@ -75,7 +75,90 @@
 
       <div class="item-flex">
         <section class="checkout">
-          <!-- Existing checkout section code -->
+          <h2>Bestelformulier</h2>
+          <form
+            id="order-form"
+            class="form-container"
+            action="/submit_order.php"
+            method="POST"
+          >
+            <label for="fname">Voornaam:</label>
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              placeholder="Uw voornaam.."
+              required
+            />
+
+            <label for="lname">Achternaam:</label>
+            <input
+              type="text"
+              id="lname"
+              name="lname"
+              placeholder="Uw achternaam.."
+              required
+            />
+
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Uw email.."
+              required
+            />
+
+            <label for="phone">Telefoonnummer:</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="Uw telefoonnummer.."
+              required
+            />
+
+            <label for="address">Adres:</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              placeholder="Uw adres.."
+              required
+            />
+
+            <label for="city">Stad:</label>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              placeholder="Uw stad.."
+              required
+            />
+
+            <label for="zipcode">Postcode:</label>
+            <input
+              type="text"
+              id="zipcode"
+              name="zipcode"
+              placeholder="Uw postcode.."
+              required
+            />
+
+            <label for="country">Land:</label>
+            <input
+              type="text"
+              id="country"
+              name="country"
+              placeholder="Uw land.."
+              required
+            />
+
+            <div class="flex-row">
+              <input type="reset" value="Annuleren" />
+              <input type="submit" value="Bestelling plaatsen" />
+            </div>
+          </form>
         </section>
 
         <section class="cart">

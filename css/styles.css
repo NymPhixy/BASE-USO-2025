@@ -242,6 +242,12 @@ input[type="reset"]:hover {
   padding: 20px;
 }
 
+.products-container-fix {
+  position: absolute;
+  width: 50%;
+  right: 0;
+}
+
 .form-container h2 {
   color: black;
 }
@@ -1268,4 +1274,18 @@ input::-webkit-outer-spin-button {
   justify-content: space-between;
   align-items: center;
   gap: 20px;
+}
+
+.add-to-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.header-products {
+  max-height: 100%;
+  overflow-y: auto;
+  padding-bottom: 100px;
 }
