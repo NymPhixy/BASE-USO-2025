@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digno - Digitale Oplossingen</title>
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Javascript -->
+    <script src="js/cta-button.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/fetch-languages.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/products.js"></script>
+  </head>
+
+  <body>
+    <!-- Header Sectie -->
+    <div class="header">
+      <div class="logo-container">
+        <img
+          src="public/images/logo_icon_nav.png"
+          alt="Digno Logo"
+          class="logo"
+        />
+        <span class="subtitle">COMPUTERS • HAREN</span>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Over Digno</a></li>
+          <li><a href="#">Reparatie & Service</a></li>
+          <li><a href="#">Contact</a></li>
+          <li>
+            <a href="winkelmand.html">
+              <svg
+                fill="#000000"
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="20px"
+                height="20px"
+                viewBox="0 0 902.86 902.86"
+                xml:space="preserve"
+              >
+                <g>
+                  <g>
+                    <path
+                      d="M671.504,577.829l110.485-432.609H902.86v-68H729.174L703.128,179.2L0,178.697l74.753,399.129h596.751V577.829z
+                 M685.766,247.188l-67.077,262.64H131.199L81.928,246.756L685.766,247.188z"
+                    />
+                    <path
+                      d="M578.418,825.641c59.961,0,108.743-48.783,108.743-108.744s-48.782-108.742-108.743-108.742H168.717
+                c-59.961,0-108.744,48.781-108.744,108.742s48.782,108.744,108.744,108.744c59.962,0,108.743-48.783,108.743-108.744
+                c0-14.4-2.821-28.152-7.927-40.742h208.069c-5.107,12.59-7.928,26.342-7.928,40.742
+                C469.675,776.858,518.457,825.641,578.418,825.641z M209.46,716.897c0,22.467-18.277,40.744-40.743,40.744
+                c-22.466,0-40.744-18.277-40.744-40.744c0-22.465,18.277-40.742,40.744-40.742C191.183,676.155,209.46,694.432,209.46,716.897z
+                 M619.162,716.897c0,22.467-18.277,40.744-40.743,40.744s-40.743-18.277-40.743-40.744c0-22.465,18.277-40.742,40.743-40.742
+                S619.162,694.432,619.162,716.897z"
+                    />
+                  </g>
+                </g></svg
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <main class="container">
+      <h1 class="heading">
+        <ion-icon name="cart-outline"></ion-icon> Shopping Cart
+      </h1>
+
+      <div class="item-flex">
+        <section class="checkout">
+          <!-- Existing checkout section code -->
+        </section>
+
+        <section class="cart">
+          <div class="cart-item-box">
+            <h2 class="section-heading">Order Summary</h2>
+            <div id="products-container"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="js/winkelmand.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const productsContainer = document.getElementById("products-container");
+        products.forEach((product) => {
+          const productCard = document.createElement("div");
+          productCard.className = "product-card";
+          productCard.innerHTML = `
+                  <div class="card">
+                      <div class="img-box">
+                          <img src="${product.image}" alt="${product.name}" width="80px" class="product-img">
+                      </div>
+                      <div class="detail">
+                        <div class="inner-detail">
+                          <h4 class="product-name">${product.name}</h4>
+                          <p>${product.description}</p>
+                          <div class="wrapper">
+                              <!-- <div class="product-qty">
+                                  <button id="decrement">
+                                      <ion-icon name="remove-outline"></ion-icon>
+                                  </button>
+                                  <span id="quantity">1</span>
+                                  <button id="increment">
+                                      <ion-icon name="add-outline"></ion-icon>
+                                  </button>
+                              </div> -->
+                             
+                            </div>
+                          </div>
+                          <div class="cart-functions">
+                            <a href="#" class="product-remove">
+                              <?xml version="1.0" encoding="utf-8"?>
+                              <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                              <svg width="20px" height="20px" viewBox="0 0 1024 1024" fill="#000000" class="icon"  version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M512 897.6c-108 0-209.6-42.4-285.6-118.4-76-76-118.4-177.6-118.4-285.6 0-108 42.4-209.6 118.4-285.6 76-76 177.6-118.4 285.6-118.4 108 0 209.6 42.4 285.6 118.4 157.6 157.6 157.6 413.6 0 571.2-76 76-177.6 118.4-285.6 118.4z m0-760c-95.2 0-184.8 36.8-252 104-67.2 67.2-104 156.8-104 252s36.8 184.8 104 252c67.2 67.2 156.8 104 252 104 95.2 0 184.8-36.8 252-104 139.2-139.2 139.2-364.8 0-504-67.2-67.2-156.8-104-252-104z" fill="" /><path d="M707.872 329.392L348.096 689.16l-31.68-31.68 359.776-359.768z" fill="" /><path d="M328 340.8l32-31.2 348 348-32 32z" fill="" /></svg></a>
+                            <div class="price">
+                                <span id="price">${product.price}</span>
+                            </div>
+                        </div>
+                      </div>
+                      <button class="product-close-btn">
+                          <ion-icon name="close-outline"></ion-icon>
+                      </button>
+                  </div>
+              `;
+          productsContainer.appendChild(productCard);
+        });
+      });
+    </script>
+
+    <footer class="footer">
+      <div class="footer-section">
+        <img
+          src="public/images/logo_icon_nav.png"
+          alt="Digno Logo"
+          class="footer-logo"
+        />
+        <p>U kunt bij DIGNO terecht voor al uw computerwensen.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Links</h3>
+        <ul>
+          <li><a href="#">Algemene voorwaarden</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Garantie</a></li>
+          <li><a href="#">Vacatures</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <ul>
+          <li>✉️ <a href="mailto:info@digno.nl">info@digno.nl</a></li>
+          <li>📞 <a href="tel:0505349965">050-5349965</a></li>
+          <li>KvK Groningen: 020.76318</li>
+          <li>btw-idnr: NL001461343B22</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Openingstijden winkel:</h3>
+        <ul>
+          <li>⏰ Dinsdag t/m vrijdag 13.00 - 17.00</li>
+          <li>⏰ Zaterdag 12.00 - 17.00</li>
+          <li>⏰ Zondag & maandag gesloten</li>
+        </ul>
+      </div>
+    </footer>
+    <!-- Loader -->
+    <div id="loader" class="loader">
+      <div class="spinner"></div>
+    </div>
+
+    <script>
+      window.addEventListener("load", function () {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const blocks = document.querySelectorAll(".grid-block");
+        const forms = document.querySelectorAll(".form-container");
+
+        // Show the first form by default
+        if (forms.length > 0) {
+          forms[0].classList.remove("hidden");
+          forms[0].classList.add("block");
+        }
+
+        blocks.forEach((block) => {
+          block.addEventListener("click", function () {
+            const formId = block.id.replace("-block", "-form");
+            const form = document.getElementById(formId);
+
+            // Hide all forms and remove data-aos attribute
+            forms.forEach((f) => {
+              f.classList.add("hidden");
+              f.classList.remove("block");
+              f.removeAttribute("data-aos");
+            });
+
+            // Show the clicked form with data-aos attribute
+            if (form) {
+              form.classList.remove("hidden");
+              form.classList.add("block");
+            }
+          });
+        });
+      });
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
