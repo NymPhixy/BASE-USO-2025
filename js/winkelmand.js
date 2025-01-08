@@ -118,12 +118,13 @@ function calculateTotal() {
   const totalAmountElement = document.getElementById("total-amount");
   let total = 0;
 
-  const productItems = productsContainer.getElementsByClassName("product-item");
+  const productItems = (document.getElementById("products-card")).getElementsByClassName("product-item");
   for (let item of productItems) {
     const price = parseFloat(item.getAttribute("data-price"));
     total += price;
   }
 
+  console.log("Total calculated:", total); // Voeg deze regel toe om het totaal te loggen
   totalAmountElement.textContent = `$${total.toFixed(2)}`;
 }
 

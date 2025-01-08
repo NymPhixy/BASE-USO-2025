@@ -142,4 +142,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
     productList.appendChild(productContainer);
   });
+
+  renderProducts();
 });
+
+function renderProducts() {
+  const productsContainer = document.getElementById("products-container");
+  productsContainer.innerHTML = "";
+
+  products.forEach((product) => {
+    const productElement = document.createElement("div");
+    productElement.className = "product-item";
+    productElement.setAttribute("data-price", product.price);
+
+    productElement.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+      <h3>${product.name}</h3>
+      <p>${product.description}</p>
+      <p>Price: $${product.price.toFixed(2)}</p>
+    `;
+
+    productsContainer.appendChild(productElement);
+  });
+
+  calculateTotal();
+}
+
+function calculateTotal() {
+  const productsContainer = document.getElementById("products-container");
+  const totalAmountElement = document.getElementById("total-amount");
+  let total = 0;
+
+  const productItems = productsContainer.getElementsByClassName("product-item");
+  for (let item of productItems) {
+    const price = parseFloat(item.getAttribute("data-price"));
+    total += price;
+  }
+
+  console.log("Total calculated:", total); // Voeg deze regel toe om het totaal te loggen
+  totalAmountElement.textContent = `$${total.toFixed(2)}`;
+}
+
+// Call renderProducts to display the products and calculate the total
+renderProducts();
