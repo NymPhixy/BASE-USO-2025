@@ -137,40 +137,12 @@
         class="digno-achtergrond w-half h-full flex flex-col justify-center">
         <form id="reparatie-form" class="form-container mxw-75 hidden" action="/action_page.php">
           <h2> Reparatie Aanvragen</h2>
-          <p class>
-            Vul het formulier in en wij nemen zo snel mogelijk contact met u
-            op.
-          </p>
-          <label for="fname">First Name</label>
-          <label for="repair-type">Kies uw reparatie:</label>
-          <select id="repair-type" name="repairtype">
-            <option value="smartphones">Smartphones</option>
-            <option value="laptops">Laptops</option>
-            <option value="pc">PC</option>
-            <option value="apple">Apple Producten</option>
-            <option value="tablets">Tablets</option>
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email" placeholder="Your email.." />
-            <input type="text" id="phone" name="phone" placeholder="Your phone number.." />
-            <label for="text">Opmerking:</label>
-            <textarea class="form-container" name="message" maxlength="300" rows="5" cols="30"
-              placeholder="Type your message here..." name="text" placeholder="Wat is er beschadigd?"
-              style="width: 100%;"></textarea>
-            <div class="flex-row">
-              <input type="reset" value="Annuleren" />
-              <a href="/submitted.html" class="button">Afspraak maken</a>
-            </div>
-        </form>
-
-        <form id="onderhoud-form" class="form-container mxw-75 hidden" action="/action_page.php">
-          <h2>Aanmelden voor onderhoud</h2>
           <p>
-            Vul het formulier in en wij nemen zo snel mogelijk contact met u
-            op.
+            Vul het formulier in en wij nemen zo snel mogelijk contact met u op.
           </p>
-          <label for="fname">First Name</label>
-          <label for="repair-type">Kies uw reparatie:</label>
-          <select id="repair-type" name="repairtype">
+
+          <label class="text-primary" for="repair-type">Kies uw reparatie:</label>
+          <select id="repair-type" name="repairtype" required>
             <option value="smartphones">Smartphones</option>
             <option value="laptops">Laptops</option>
             <option value="pc">PC</option>
@@ -178,16 +150,53 @@
             <option value="tablets">Tablets</option>
           </select>
 
-          <label for="email">Email</label>
-          <input type="text" id="email" name="email" placeholder="Your email.." />
-          placeholder="Your email.." />
-          <input type="text" id="phone" name="phone" placeholder="Your phone number.." />
+          <label class="text-primary" for="fname">Voornaam:</label>
+          <input type="text" id="fname" name="fname" placeholder="Uw voornaam.." required />
+
+          <label class="text-primary" for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Uw email.." required />
+
+          <label class="text-primary" for="phone">Telefoon:</label>
+          <input type="tel" id="phone" name="phone" placeholder="Uw telefoonnummer.." required />
+
+          <label class="text-primary" for="message">Opmerking:</label>
+          <textarea id="message" name="message" maxlength="300" rows="5" cols="30" placeholder="Wat is er beschadigd?"
+            style="width: 100%;" required></textarea>
+
           <div class="flex-row">
             <input type="reset" value="Annuleren" />
-            <a href="/onderhoud.html" class="button">Afspraak maken</a>
+            <button type="submit" class="button">Afspraak maken</button>
           </div>
+        </form>
+        <form id="onderhoud-form" class="form-container mxw-75 hidden" action="/action_page.php">
+          <h2>Aanmelden voor onderhoud</h2>
+          <p>
+            Vul het formulier in en wij nemen zo snel mogelijk contact met u op.
+          </p>
+          <label class="text-primary" for="fname">Voornaam:</label>
+          <input type="text" id="fname" name="fname" placeholder="Uw voornaam.." required />
+
+          <label class="text-primary" for="repair-type">Kies uw reparatie:</label>
+          <select id="repair-type" name="repairtype" required>
+            <option value="smartphones">Smartphones</option>
+            <option value="laptops">Laptops</option>
+            <option value="pc">PC</option>
+            <option value="apple">Apple Producten</option>
+            <option value="tablets">Tablets</option>
+          </select>
+
+          <label class="text-primary" for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Uw email.." required />
+
+          <label class="text-primary" for="phone">Telefoon:</label>
+          <input type="tel" id="phone" name="phone" placeholder="Uw telefoonnummer.." required />
+
+          <div class="flex-row">
+            <input type="reset" value="Annuleren" />
+            <button type="submit" class="button">Afspraak maken</button>
+          </div>
+        </form>
       </div>
-      </form>
 
       <div id="upgrades-form" class="form-container hidden h-full w-half products-container-fix"
         action="/action_page.php">
