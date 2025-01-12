@@ -1,5 +1,3 @@
-// Removed duplicate declaration of products
-
 const products = [
   {
     name: "AMD Ryzen 7 9800X3D",
@@ -84,6 +82,7 @@ const products = [
 
 document.addEventListener("DOMContentLoaded", () => {
   const productList = document.getElementById("product-list");
+  const capaAmount = document.querySelector(".capa-amount p"); // Cart count element
 
   if (!productList) {
     console.error("Product list element not found");
@@ -125,21 +124,23 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
 
       // Get existing cart items or initialize it
-      const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+      let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
       // Check if the product is already in the cart
-      const existantProduct = cartItems.find(
-        (item) => item.name === product.name
-      );
+      const existantProduct = cartItems.find((item) => item.name === product.name);
       if (existantProduct) {
-        console.log("Product already in cart:", existantProduct);
+        // Increment quantity if it already exists
+        existantProduct.quantity += 1;
       } else {
-        // Add product to cart
-        cartItems.push(product);
-        localStorage.setItem("cart", JSON.stringify(cartItems));
-        console.log("Product added to cart:", product);
-        updateTotalAmount(cartItems);
+        // Add new product to cart with quantity 1
+        cartItems.push({ ...product, quantity: 1 });
       }
+
+      // Save updated cart
+      localStorage.setItem("cart", JSON.stringify(cartItems));
+
+      console.log("Cart updated:", cartItems);
+      updateCartUI(cartItems);
     });
 
     productContainer.appendChild(productImage);
@@ -150,17 +151,28 @@ document.addEventListener("DOMContentLoaded", () => {
     productList.appendChild(productContainer);
   });
 
-  // Initialize total amount on page load
+  // Initialize cart UI on page load
   const initialCartItems = JSON.parse(localStorage.getItem("cart")) || [];
-  updateTotalAmount(initialCartItems);
+  updateCartUI(initialCartItems);
 });
 
-function updateTotalAmount(cartItems) {
+// Update UI for cart
+function updateCartUI(cartItems) {
+  const capaAmount = document.querySelector(".capa-amount p"); // Cart count element
   const totalAmountElement = document.getElementById("total-amount");
-  if (!totalAmountElement) {
-    console.error("Total amount element not found");
+
+  if (!capaAmount) {
+    console.error("Cart count element not found");
     return;
   }
-  const totalAmount = cartItems.reduce((total, item) => total + item.price, 0);
-  totalAmountElement.textContent = `€ ${totalAmount.toFixed(2)}`;
+
+  // Calculate and update total number of items
+  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+  capaAmount.textContent = totalItems;
+
+  // Calculate and update total price
+  if (totalAmountElement) {
+    const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    totalAmountElement.textContent = `€ ${totalPrice.toFixed(2)}`;
+  }
 }

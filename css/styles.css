@@ -1485,3 +1485,28 @@ input::-webkit-outer-spin-button {
   padding-bottom: 20px !important;
   height: 100%;
 }
+
+.capa-amount {
+  display: flex;  
+  width: 15px;
+  height: 15px;
+  background-color: red;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  color: white;
+  
+}
+
+.capa-amount p {
+  color: white;
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header .capa {
+  position: relative;
+}

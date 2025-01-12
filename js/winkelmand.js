@@ -1,6 +1,6 @@
 "use strict";
 
-const products = [
+var products = [
   {
     name: "AMD Ryzen 7 9800X3D",
     description:
