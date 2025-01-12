@@ -1074,7 +1074,7 @@ input::-webkit-outer-spin-button {
 }
 
 .cart-item-box {
-  padding: 40px var(--padding-x);
+  padding: 20px;
   margin-bottom: auto;
 }
 
@@ -1270,6 +1270,8 @@ input::-webkit-outer-spin-button {
 
 .detail {
   display: flex;
+  flex-direction: column;
+  gap: 10px;
   justify-content: space-between;
   width: 100%;
 }
@@ -1304,7 +1306,18 @@ input::-webkit-outer-spin-button {
 .container-request {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  gap: 20px;
+  height: 100%;
+  margin: auto;
+}
+
+.submitted-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   gap: 20px;
 }
 
@@ -1407,11 +1420,15 @@ input::-webkit-outer-spin-button {
   padding: 20px;
 }
 
-.service-intro, .service-details, .service-contact {
+.service-intro,
+.service-details,
+.service-contact {
   margin-bottom: 40px;
 }
 
-.service-intro h1, .service-details h2, .service-contact h2 {
+.service-intro h1,
+.service-details h2,
+.service-contact h2 {
   color: #007bff;
   margin-bottom: 20px;
 }
@@ -1435,7 +1452,8 @@ input::-webkit-outer-spin-button {
   font-weight: bold;
 }
 
-.form-container input, .form-container textarea {
+.form-container input,
+.form-container textarea {
   margin-bottom: 15px;
   padding: 10px;
   border: 1px solid #ccc;
@@ -1457,3 +1475,13 @@ input::-webkit-outer-spin-button {
   display: none;
 }
 
+#total-container {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--gainsboro);
+}
+
+.pb-20 {
+  padding-bottom: 20px !important;
+  height: 100%;
+}

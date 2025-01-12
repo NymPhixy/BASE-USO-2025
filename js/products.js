@@ -1,3 +1,5 @@
+// Removed duplicate declaration of products
+
 const products = [
   {
     name: "AMD Ryzen 7 9800X3D",
@@ -83,6 +85,11 @@ const products = [
 document.addEventListener("DOMContentLoaded", () => {
   const productList = document.getElementById("product-list");
 
+  if (!productList) {
+    console.error("Product list element not found");
+    return;
+  }
+
   products.forEach((product) => {
     const productContainer = document.createElement("div");
     productContainer.classList.add(
@@ -108,9 +115,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const buyButton = document.createElement("a");
     buyButton.href = "#";
-    buyButton.classList.add("buy-button");
-    buyButton.classList.add("add-to-cart");
-    buyButton.innerHTML = `<img class="shopping-cart-icon " src="./public/images/shopping-cart.png" alt="shopping cart" /> Toevoegen aan winkelmand`;
+    buyButton.classList.add("buy-button", "add-to-cart");
+    buyButton.innerHTML = `<img class="shopping-cart-icon" src="./public/images/shopping-cart.png" alt="shopping cart" /> Toevoegen aan winkelmand`;
     buyButton.setAttribute("data-name", product.name);
     buyButton.setAttribute("data-price", product.price);
 
@@ -126,12 +132,13 @@ document.addEventListener("DOMContentLoaded", () => {
         (item) => item.name === product.name
       );
       if (existantProduct) {
-        alert("Dit product is al in uw winkelmand.");
+        console.log("Product already in cart:", existantProduct);
       } else {
         // Add product to cart
         cartItems.push(product);
         localStorage.setItem("cart", JSON.stringify(cartItems));
-        alert("Product toegevoegd aan uw winkelmand!");
+        console.log("Product added to cart:", product);
+        updateTotalAmount(cartItems);
       }
     });
 
@@ -143,45 +150,17 @@ document.addEventListener("DOMContentLoaded", () => {
     productList.appendChild(productContainer);
   });
 
-  renderProducts();
+  // Initialize total amount on page load
+  const initialCartItems = JSON.parse(localStorage.getItem("cart")) || [];
+  updateTotalAmount(initialCartItems);
 });
 
-function renderProducts() {
-  const productsContainer = document.getElementById("products-container");
-  productsContainer.innerHTML = "";
-
-  products.forEach((product) => {
-    const productElement = document.createElement("div");
-    productElement.className = "product-item";
-    productElement.setAttribute("data-price", product.price);
-
-    productElement.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
-      <h3>${product.name}</h3>
-      <p>${product.description}</p>
-      <p>Price: $${product.price.toFixed(2)}</p>
-    `;
-
-    productsContainer.appendChild(productElement);
-  });
-
-  calculateTotal();
-}
-
-function calculateTotal() {
-  const productsContainer = document.getElementById("products-container");
+function updateTotalAmount(cartItems) {
   const totalAmountElement = document.getElementById("total-amount");
-  let total = 0;
-
-  const productItems = productsContainer.getElementsByClassName("product-item");
-  for (let item of productItems) {
-    const price = parseFloat(item.getAttribute("data-price"));
-    total += price;
+  if (!totalAmountElement) {
+    console.error("Total amount element not found");
+    return;
   }
-
-  console.log("Total calculated:", total); // Voeg deze regel toe om het totaal te loggen
-  totalAmountElement.textContent = `$${total.toFixed(2)}`;
+  const totalAmount = cartItems.reduce((total, item) => total + item.price, 0);
+  totalAmountElement.textContent = `€ ${totalAmount.toFixed(2)}`;
 }
-
-// Call renderProducts to display the products and calculate the total
-renderProducts();

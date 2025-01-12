@@ -11,11 +11,18 @@
   margin-bottom: 40px;
 }
 
+.flex-container {
+  position: relative;
+  height: 100%;
+}
+
 .about-section {
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .text-primary {
@@ -25,7 +32,6 @@
 
 .text-secondary {
   color: #333;
-  margin: 20px;
 }
 
 .text-secondary ul {

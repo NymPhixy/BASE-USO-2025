@@ -1,14 +1,5 @@
 "use strict";
 
-const payAmountBtn = document.querySelector("#payAmount");
-const decrementBtn = document.querySelectorAll("#decrement");
-const quantityElem = document.querySelectorAll("#quantity");
-const incrementBtn = document.querySelectorAll("#increment");
-const priceElem = document.querySelectorAll("#price");
-const subtotalElem = document.querySelector("#subtotal");
-const taxElem = document.querySelector("#tax");
-const totalElem = document.querySelector("#total");
-
 const products = [
   {
     name: "AMD Ryzen 7 9800X3D",
@@ -104,7 +95,7 @@ function renderProducts() {
       <img src="${product.image}" alt="${product.name}">
       <h3>${product.name}</h3>
       <p>${product.description}</p>
-      <p>Price: $${product.price.toFixed(2)}</p>
+      <p>Price: €${product.price.toFixed(2)}</p>
     `;
 
     productsContainer.appendChild(productElement);
@@ -114,21 +105,20 @@ function renderProducts() {
 }
 
 function calculateTotal() {
-  const productsContainer = document.getElementById("products-container");
   const totalAmountElement = document.getElementById("total-amount");
   let total = 0;
 
-  const productItems = (document.getElementById("products-card")).getElementsByClassName("product-item");
+  const productItems = document
+    .getElementById("products-container")
+    .getElementsByClassName("product-item");
   for (let item of productItems) {
     const price = parseFloat(item.getAttribute("data-price"));
     total += price;
   }
 
-  console.log("Total calculated:", total); // Voeg deze regel toe om het totaal te loggen
-  totalAmountElement.textContent = `$${total.toFixed(2)}`;
+  console.log("Total calculated:", total); // Log the total amount
+  totalAmountElement.textContent = `€${total.toFixed(2)}`;
 }
 
 // Call renderProducts to display the products and calculate the total
 renderProducts();
-
-export { products };
